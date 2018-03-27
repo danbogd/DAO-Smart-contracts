@@ -106,7 +106,6 @@ contract ERC20 is ERC20Basic {
  * Стандартный ERC20 токен
  * Реализация базового стандартного токена.
  * https://github.com/ethereum/EIPs/issues/20
- * Основано на коде от FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
  */
 contract StandardToken is ERC20, BasicToken {
     mapping (address => mapping (address => uint256)) internal allowed;
@@ -168,7 +167,6 @@ contract StandardToken is ERC20, BasicToken {
 /**
  * Mintable token
  * Простой пример токена ERC20, с созданием mintable токена
- * Основано на коде TokenMarketNet: https://github.com/TokenMarketNet/ico/blob/master/contracts/MintableToken.sol
  */
 contract MintableToken is StandardToken, Ownable {
     event Mint(address indexed to, uint256 amount);
@@ -207,7 +205,7 @@ contract Crowdsale {
     uint256 public endTime;
     // адрес, на который переводятся вложения
     address public wallet;
-    // как много токенов покупатель получает ща свои wei
+    // как много токенов покупатель получает за свои wei
     uint256 public rate;
     // количество собранных денег в wei
     uint256 public weiRaised;
