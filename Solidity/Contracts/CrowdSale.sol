@@ -299,7 +299,7 @@ contract Pausable is Ownable {
  * Расширение Crowdsale, где владелец может провести дополнительные операции
  * после завершения.
  */
-contract FinalizableCrowdsale is Crowdsale, Ownable {
+contract FinalizableCrowdsale is Crowdsale, Ownable,Pausable {
     using SafeMath for uint256;
     bool public isFinalized = false;
     event Finalized();
