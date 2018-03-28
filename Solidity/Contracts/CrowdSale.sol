@@ -263,6 +263,38 @@ contract Crowdsale {
     }
 }
 /**
+ *  Контракт аварийной остановки
+ */
+contract Pausable is Ownable {
+  event Pause();
+  event Unpause();
+
+  bool public paused = false;
+
+  modifier whenNotPaused() {
+    require(!paused);
+    _;
+  }
+
+  modifier whenPaused {
+    require(paused);
+    _;
+  }
+  
+  function pause() onlyOwner whenNotPaused returns (bool) {
+    paused = true;
+    Pause();
+    return true;
+  }
+
+  function unpause() onlyOwner whenPaused returns (bool) {
+    paused = false;
+    Unpause();
+    return true;
+  }
+}
+
+/**
  * FinalizableCrowdsale
  * Расширение Crowdsale, где владелец может провести дополнительные операции
  * после завершения.
