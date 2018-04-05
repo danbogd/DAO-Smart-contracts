@@ -1,2 +1,2 @@
+Загрузка котировок ETH/EUR/ESD c https://api.kraken.com (veb.ru)
 
-Мои контракты
